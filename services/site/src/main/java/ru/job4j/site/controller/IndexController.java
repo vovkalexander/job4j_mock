@@ -51,7 +51,7 @@ public class IndexController {
 
         Map<Integer, String> submitters = interviews.stream()
                 .map(InterviewDTO::getSubmitterId)
-                        .map(profilesService::getProfileById)
+                .map(profilesService::getProfileById)
                 .filter(Optional::isPresent)
                 .flatMap(Optional::stream)
                 .collect(Collectors.toMap(profileDTO -> profileDTO.getId(), profileDTO -> profileDTO.getUsername(),
