@@ -58,7 +58,7 @@ public class IndexController {
                         (prev, curr) -> prev));
 
 
-        model.addAttribute("name_submitters", submitters );
+        model.addAttribute("name_submitters", submitters);
 
         model.addAttribute("new_interviews", interviews);
         return "index";
