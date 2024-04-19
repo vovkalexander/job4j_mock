@@ -49,12 +49,15 @@ class IndexControllerTest {
     @MockBean
     private NotificationService notificationService;
 
+    @MockBean
+    private ProfilesService profilesService;
+
     private IndexController indexController;
 
     @BeforeEach
     void initTest() {
         this.indexController = new IndexController(
-                categoriesService, interviewsService, authService, notificationService
+                categoriesService, interviewsService, authService, notificationService, profilesService
         );
     }
 
