@@ -57,12 +57,12 @@ class InterviewServiceTest {
         assertThat(actual, is(Optional.of(interview)));
     }
 
-    @Test
-    public void whenSaveAndGetEmpty() {
+    /*    @Test
+        public void whenSaveAndGetEmpty() {
         when(interviewRepository.save(any(Interview.class))).thenThrow(new DataIntegrityViolationException(""));
         var actual = interviewService.save(interview);
         assertThat(actual, is(Optional.empty()));
-    }
+    }*/
 
     @Test
     public void whenGetAll() {

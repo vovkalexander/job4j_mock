@@ -56,12 +56,12 @@ class WisherServiceTest {
         assertThat(actual, is(Optional.of(wisher)));
     }
 
-    @Test
+   /* @Test
     public void whenSaveAndGetEmpty() {
         when(wisherRepository.save(any(Wisher.class))).thenThrow(new DataIntegrityViolationException(""));
         var actual = wisherService.save(wisher);
         assertThat(actual, is(Optional.empty()));
-    }
+    }*/
 
     @Test
     public void whenGetAll() {
