@@ -28,6 +28,7 @@ public class IndexController {
     private final AuthService authService;
     private final NotificationService notifications;
     private final ProfilesService profilesService;
+    private final TopicsService topicsService;
 
     @GetMapping({"/", "index"})
     public String getIndexPage(Model model, HttpServletRequest req) throws JsonProcessingException {
@@ -48,7 +49,6 @@ public class IndexController {
         }
 
         List<InterviewDTO> interviews = interviewsService.getByType(1);
-
         Map<Integer, String> submitters = interviews.stream()
                 .map(InterviewDTO::getSubmitterId)
                 .map(profilesService::getProfileById)
@@ -56,11 +56,16 @@ public class IndexController {
                 .flatMap(Optional::stream)
                 .collect(Collectors.toMap(profileDTO -> profileDTO.getId(), profileDTO -> profileDTO.getUsername(),
                         (prev, curr) -> prev));
+        Map<Integer, Long> interviewCount = interviews
+                .stream()
+                .map(interview -> topicsService.getById(interview.getTopicId()))
+                .collect(Collectors.groupingBy(topicDTO -> topicDTO.getCategory().getId(),
+                        Collectors.counting()));
 
-
+        model.addAttribute("interviewCount", interviewCount);
         model.addAttribute("name_submitters", submitters);
-
         model.addAttribute("new_interviews", interviews);
+
         return "index";
     }
 }
