@@ -6,7 +6,7 @@
 
     <groupId>ru.checkdev</groupId>
     <artifactId>auth</artifactId>
-    <version>1.0.0</version>
+    <version>1.2.1</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -110,7 +110,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.22</version>
+            <version>1.18.36</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
