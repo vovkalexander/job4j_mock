@@ -17,7 +17,7 @@ public class FilterService {
 
     public FilterDTO save(String token, FilterDTO filter) throws JsonProcessingException {
         var mapper = new ObjectMapper();
-        var out = new RestAuthCall(URL, restTemplate ).post(
+        var out = new RestAuthCall(URL, restTemplate).post(
                 token,
                 mapper.writeValueAsString(filter)
         );
